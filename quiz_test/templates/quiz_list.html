@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz Application</title>
+    <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+{% block content %}
+
+<div class="container">
+  <h2>quiz List</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>quiz ID</th>
+        <th>quiz</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for quiz in quiz_list %}
+      <tr>
+        <td>{{quiz.id}}</td>
+        <td>{{quiz.quiz_name}}</td>
+          <td><a href= {% url 'quiz_attempt' id=quiz.id %}><button class="primary">Attempt</button></a></td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}
+</html>
